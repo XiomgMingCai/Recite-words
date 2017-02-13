@@ -1,38 +1,9 @@
 <template>
-  <div id="CreatSelect">
-    <header-lg bigTite="攻城狮单词" noteTitle="请选择"></header-lg>
-    <div style="margin-top: 10px"></div>
-    <div>
-      选择更多技术语言 <span @click="clickmore" style="color: green">选择更多技术语言</span>
-    </div>
+  <div id="CreatFinsh">
+    <header-lg bigTite="注册" noteTitle="完成注册☁️云备份练习进度"></header-lg>
 
 
-    <div class="radio-lg">
-      <ul>
-        <li class="radio active" id="css" @click="dateSelect('css')">
-          <div>CSS</div>
-        </li>
-        <li class="radio noactive " id="HTML" @click="dateSelect('HTML')">
-          <div>HTML</div>
-        </li>
-        <div v-show="radiolgMore">
-          <li class="radio noactive" id="JavaScript" @click="dateSelect('JavaScript')">
-            <div>JavaScript</div>
-          </li>
-          <li class="radio noactive" id="Vue" @click="dateSelect('Vue')">
-            <div>Vue</div>
-          </li>
-          <li class="radio noactive" id="MongoDB" @click="dateSelect('MongoDB')">
-            <div>MongoDB</div>
-          </li>
-          <li class="radio noactive" id="Node" @click="dateSelect('Node')">
-            <div>Node</div>
-          </li>
-        </div>
-      </ul>
-    </div>
-    <!--radio-lg单选结束-->
-    <buttomBtn @click.native="goCreatFinsh" value="开始" color="orange" class="buttomBtn"></buttomBtn>
+    <buttomBtn @click.native="goindex" value="开始" color="orange" class="buttomBtn"></buttomBtn>
     <!--goindex按钮结束-->
   </div>
 </template>
@@ -50,13 +21,10 @@
       }
     },
     methods: {
-      goCreatFinsh: function () {
-        this.$router.push({path: '/CreatFinsh'})
+      goindex: function () {
+        this.$router.push({path: '/'})
 
       },//选择 并高亮
-      clickmore:function () {
-        this.radiolgMore = !this.radiolgMore
-      },
       dateSelect: function (id) {
         var obj = document.getElementsByClassName('radio');
         for (var i = 0; i < obj.length; i++) {
