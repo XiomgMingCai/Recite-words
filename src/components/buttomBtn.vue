@@ -45,6 +45,8 @@
     border: 0;
    // background: linear-gradient(45deg, @green 0%, @Green 100%);
     letter-spacing: 2px;
+    outline: none;
+    border-radius: @border-radius;
   }
 
   .orange {
