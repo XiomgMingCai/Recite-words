@@ -9,23 +9,23 @@
 
     <div class="radio-lg">
       <ul>
-        <li class="radio active" id="css" @click="dateSelect('css')">
+        <li class="radio active" id="data-css" @click="dateSelect('data-css')">
           <div>CSS</div>
         </li>
-        <li class="radio noactive " id="HTML" @click="dateSelect('HTML')">
+        <li class="radio noactive " id="data-HTML" @click="dateSelect('data-HTML')">
           <div>HTML</div>
         </li>
         <div v-show="radiolgMore">
-          <li class="radio noactive" id="JavaScript" @click="dateSelect('JavaScript')">
+          <li class="radio noactive" id="data-JavaScript" @click="dateSelect('data-JavaScript')">
             <div>JavaScript</div>
           </li>
-          <li class="radio noactive" id="Vue" @click="dateSelect('Vue')">
+          <li class="radio noactive" id="data-Vue" @click="dateSelect('data-Vue')">
             <div>Vue</div>
           </li>
-          <li class="radio noactive" id="MongoDB" @click="dateSelect('MongoDB')">
+          <li class="radio noactive" id="data-MongoDB" @click="dateSelect('data-MongoDB')">
             <div>MongoDB</div>
           </li>
-          <li class="radio noactive" id="Node" @click="dateSelect('Node')">
+          <li class="radio noactive" id="data-Node" @click="dateSelect('data-Node')">
             <div>Node</div>
           </li>
         </div>
@@ -62,8 +62,8 @@
         for (var i = 0; i < obj.length; i++) {
           obj[i].setAttribute('class', 'radio noactive')
         }
-        document.getElementById(id).setAttribute('class', 'radio active')
-
+        document.getElementById(id).setAttribute('class', 'radio active');
+        console.log(id);
         console.log('main.js/data=>examTime:' + this.$parent.examTime);
       }
     }
@@ -99,7 +99,7 @@
 
       height: 120px;
       text-align: center;
-      line-height: 100px;
+      line-height: 120px;
       color: @white;
     }
   }
@@ -110,7 +110,7 @@
       background-color: #8a8a8a;
       height: 120px;
       text-align: center;
-      line-height: 100px;
+      line-height: 120px;
       color: @white;
     }
   }
