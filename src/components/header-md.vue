@@ -3,7 +3,7 @@
   <div id="header-md">
   <h2>  {{Title}}</h2>
     <div v-show="moreshow" id="menu">
-      <img src="../assets/images/menu.png" alt="">
+      <img src="../assets/images/menu.png" alt="三" @click="openMenu">
       </div>
     </div>
   </div>
@@ -21,6 +21,11 @@
           return this.moreshow = false
         }
       }/**/
+    },
+    methods:{//打开菜单
+      openMenu:function () {
+        this.$store.state.leftmenuShow = true
+      }
     }
   }
 </script>
@@ -35,10 +40,12 @@
   h2  {
     height: 50px;
     line-height: 50px;
+    margin-left: 20px;
+    color: @white;
   }
   #menu{
-    margin-left: 300px;
-    margin-top: -59px;
+    margin-left: 323px;
+    margin-top: -40px;
   }
 
 

@@ -3,10 +3,11 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 // 状态
 var state = {
- newbi:0,//注册否
-  serverIP:'127.0.0.1'
+  newbi: 1,//注册否
+  serverIP: '127.0.0.1',
+  leftmenuShow: 1//
   //
- };
+};
 /**
  * 用原生 ajax
  */
