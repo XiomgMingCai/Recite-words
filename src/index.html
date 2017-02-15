@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//cdn.bootcss.com/bootstrap/3.0.1/css/bootstrap.css" rel="stylesheet">
+  <title></title>
+  <style>
+    .gray{background:#ccc;}
+  </style>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="word" @keyup="get" @keydown.down="changeColor" @keydown.up.prevent="changeUpColor">
+  <ul class="list-group">
+    <li v-for="(keyWord,index) in keyWords" :class="['list-group-item',{gray:index==now}]">{{keyWord}}</li>
+  </ul>
+  <p v-show="keyWords.length==0">暂无数据……</p>
+</div>
+
+<script src="//cdn.bootcss.com/vue/2.0.8/vue.js"></script>
+<script src="//cdn.bootcss.com/vue-resource/0.7.2/vue-resource.js"></script>
+<script>
+  var vm = new Vue({
+    el:'#app',
+    data:{
+      keyWords:[],
+      word:'',
+      now:-1
+    },
+    methods:{
+      get:function(event){
+        if(event.keyCode==38 || event.keyCode==40){return};
+        if(event.keyCode==13){
+          window.open('https://www.baidu.com/s?wd='+this.word);
+          this.word='';
+        }
+        this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?',{wd:this.word},{jsonp:'cb'})
+          .then(
+            function(response){
+              this.keyWords = response.data.s;
+            },
+            function(response){
+              alert(response.status)
+            }
+          )
+      },
+      changeColor:function(){
+        this.now++;
+        if(this.now == this.keyWords.length){ this.now = -1};
+        this.word = this.keyWords[this.now];
+      },
+      changeUpColor:function(){
+        this.now--;
+        if(this.now == -2){this.now = this.keyWords.length-1};
+        this.word = this.keyWords[this.now];
+      }
+    }
+  })
+</script>
+</body>
+</html>
